@@ -1,0 +1,301 @@
+/* src/components/Tests.css */
+
+/* Общие стили для контента теста */
+#tests {
+    padding: 20px;
+    border-radius: 15px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); /* Легкий градиент для фона */
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Лучшая типографика */
+}
+
+#test-content {
+    max-width: 900px; /* Увеличил ширину для большего пространства */
+    margin: 0 auto;
+    padding: 30px;
+    background: rgba(26, 26, 46, 0.9); /* Более прозрачный фон с градиентом */
+    border-radius: 15px; /* Закругленные углы */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Тень для глубины */
+}
+
+/* Стили для выбора модуля */
+.test-selection h2 {
+    color: #ff6b35; /* Оранжевый заголовок */
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2em;
+    font-weight: bold;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Тень для текста */
+}
+
+.module-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Увеличил мин. ширину для лучших пропорций */
+    gap: 20px;
+}
+
+.module-button {
+    background: linear-gradient(135deg, rgba(26, 26, 46, 0.8) 0%, rgba(34, 34, 51, 0.8) 100%); /* Градиент для кнопок */
+    color: #ffffff;
+    border: 2px solid #444;
+    border-radius: 12px;
+    padding: 25px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.4s ease; /* Более плавные переходы */
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Тень */
+    position: relative;
+    overflow: hidden;
+}
+
+.module-button::before {
+    content: "📚"; /* Иконка книги для модулей */
+    font-size: 1.5em;
+    margin-right: 10px;
+}
+
+.module-button:hover {
+    background: linear-gradient(135deg, rgba(34, 139, 34, 0.9) 0%, rgba(50, 205, 50, 0.9) 100%); /* Зеленоватый градиент при наведении */
+    border-color: #32CD32;
+    transform: translateY(-5px) scale(1.05); /* Более заметный подъём и увеличение */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* Стили для вопроса */
+.question-container {
+    animation: fadeIn 0.5s ease-out forwards; /* Увеличил время анимации */
+}
+
+.progress-bar-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.progress-bar {
+    flex-grow: 1;
+    height: 12px; /* Увеличил высоту */
+    background-color: #333;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #ff6b35 0%, #ff8c42 100%); /* Градиент для прогресса */
+    transition: width 0.5s ease;
+    border-radius: 6px;
+}
+
+.progress-text {
+    margin-left: 20px;
+    font-size: 16px;
+    color: #ccc;
+    font-weight: bold;
+}
+
+.question-container h3 {
+    color: #ffffff;
+    font-size: 1.6em;
+    margin-bottom: 25px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.answers-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Одна колонка для ответов */
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.answer-option {
+    background: linear-gradient(135deg, rgba(26, 26, 46, 0.8) 0%, rgba(34, 34, 51, 0.8) 100%);
+    border: 2px solid #444;
+    border-radius: 10px;
+    padding: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+.answer-option:hover {
+    background: linear-gradient(135deg, rgba(51, 51, 51, 0.9) 0%, rgba(68, 68, 68, 0.9) 100%);
+    border-color: #666;
+    transform: translateY(-2px);
+}
+
+.answer-option.selected {
+    background: linear-gradient(135deg, rgba(34, 139, 34, 0.9) 0%, rgba(50, 205, 50, 0.9) 100%);
+    border-color: #32CD32;
+    transform: scale(1.03);
+    animation: pulse 0.6s ease-in-out; /* Пульсация для выбранного */
+}
+
+.answer-text {
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.submit-answer-button {
+    background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%); /* Градиент для кнопки */
+    color: #ffffff;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    width: 100%;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+}
+
+.submit-answer-button:hover:not(:disabled) {
+    background: linear-gradient(135deg, #e55a2b 0%, #d46a2a 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.6);
+}
+
+.submit-answer-button:disabled {
+    background: #555;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* Стили для результата */
+.result-container {
+    text-align: center;
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+.result-container h2 {
+    color: #ff6b35;
+    margin-bottom: 25px;
+    font-size: 2.2em;
+    font-weight: bold;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.result-score {
+    font-size: 3.5em;
+    font-weight: bold;
+    margin: 25px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.result-score.excellent {
+    color: #32CD32;
+}
+
+.result-score.good {
+    color: #FFD700;
+}
+
+.result-score.needs-work {
+    color: #ff6b35;
+}
+
+.result-score::before {
+    content: "🎉"; /* Иконка для отличного результата */
+    font-size: 0.8em;
+    margin-right: 10px;
+}
+
+.result-score.good::before {
+    content: "👍";
+}
+
+.result-score.needs-work::before {
+    content: "📖";
+}
+
+/* Простая круговая диаграмма для процента */
+.result-percentage {
+    font-size: 1.2em;
+    color: #ccc;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.percentage-circle {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 20px;
+    background: conic-gradient(#ff6b35 0% var(--percentage), #333 var(--percentage) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.result-message {
+    font-size: 1.3em;
+    color: #ffffff;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.back-to-selection-button {
+    background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+    color: #ffffff;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+}
+
+.back-to-selection-button:hover {
+    background: linear-gradient(135deg, #e55a2b 0%, #d46a2a 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.6);
+}
+
+/* Анимации */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Медиа-запросы для мобильных */
+@media (max-width: 768px) {
+    #test-content {
+        padding: 20px;
+        border-radius: 10px;
+    }
+    .module-button {
+        padding: 20px 15px;
+        font-size: 16px;
+    }
+    .question-container h3 {
+        font-size: 1.4em;
+    }
+    .answer-text {
+        font-size: 15px;
+    }
+    .submit-answer-button, .back-to-selection-button {
+        padding: 12px 20px;
+        font-size: 16px;
+    }
+}
